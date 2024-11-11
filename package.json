@@ -1,0 +1,27 @@
+{
+    "name": "kanbas-node-server-app",
+    "version": "1.0.0",
+    "description": "Node.js HTTP Web server for the Kanbas application",
+    "main": "index.js",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/BachaniS/kanbas-node-server-app"
+    },
+    "scripts": {
+        "test": ""
+    },
+    "keywords": [
+        "Node",
+        "REST",
+        "Server",
+        "HTTP",
+        "Web Development",
+        "CS5610",
+        "CS4550"
+    ],
+    "author": "Somesh Bachani",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.21.1"
+    }
+}
