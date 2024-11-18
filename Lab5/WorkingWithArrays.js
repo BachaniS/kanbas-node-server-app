@@ -25,7 +25,7 @@ export default function WorkingWithArrays(app) {
     res.json(todos);
   });
   app.post("/lab5/todos", (req, res) => {
-    const newTodo = { ...req.body,  id: new Date().getTime() };
+    const newTodo = { ...req.body, id: new Date().getTime() };
     todos.push(newTodo);
     res.json(newTodo);
   });
@@ -43,6 +43,10 @@ export default function WorkingWithArrays(app) {
   app.delete("/lab5/todos/:id", (req, res) => {
     const { id } = req.params;
     const todoIndex = todos.findIndex((t) => t.id === parseInt(id));
+    if (todoIndex === -1) {
+      res.status(404).json({ message: `Unable to delete Todo with ID ${id}` });
+      return;
+    }
     todos.splice(todoIndex, 1);
     res.sendStatus(200);
   });
@@ -70,6 +74,11 @@ export default function WorkingWithArrays(app) {
   });
   app.put("/lab5/todos/:id", (req, res) => {
     const { id } = req.params;
+    const todoIndex = todos.findIndex((t) => t.id === parseInt(id));
+    if (todoIndex === -1) {
+      res.status(404).json({ message: `Unable to update Todo with ID ${id}` });
+      return;
+    }
     todos = todos.map((t) => {
       if (t.id === parseInt(id)) {
         return { ...t, ...req.body };
@@ -78,5 +87,4 @@ export default function WorkingWithArrays(app) {
     });
     res.sendStatus(200);
   });
-
 }
