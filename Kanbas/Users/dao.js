@@ -1,7 +1,7 @@
 import db from "../Database/index.js";
 let { users } = db;
 export const createUser = (user) =>
-  (users = [...users, { ...user, _id: Date.now() }]);
+  (users = [...users, { ...user, _id: Date.now().toString() }]);
 export const findAllUsers = () => users;
 export const findUserById = (userId) =>
   users.find((user) => user._id === userId);
