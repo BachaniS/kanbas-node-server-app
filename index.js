@@ -48,5 +48,14 @@ AssignmentRoutes(app);
 EnrollmentRoutes(app);
 Lab5(app);
 Hello(app);
+function authenticate(req, res, next) {
+  if (req.isAuthenticated()) {
+    return next();
+  }
+  res.status(401).send('Unauthorized');
+}
+
+// Use the authentication middleware
+app.use(authenticate);
 
 app.listen(process.env.PORT || 4000);
