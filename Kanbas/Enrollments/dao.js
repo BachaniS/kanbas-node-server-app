@@ -2,7 +2,6 @@ import model from "./model.js";
 import userModel from "../Users/model.js";
 
 export function enrollUserInCourse(userId, courseId) {
-  //console.log(userId, courseId);
   const newEnrollment = { user: userId, course: courseId };
   return model.create(newEnrollment);
 }
